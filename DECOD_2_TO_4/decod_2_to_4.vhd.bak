@@ -1,0 +1,37 @@
+--
+--					 DECODIFICADOR 2 EM 4
+--
+--				AUTOR: EDWILDSON C. RODRIGUES
+--
+--		UNIVERSIDADE FEDERAL DO VALE DO SÃO FRANCISCO
+--
+--					   DATA: 27/07/2018
+--
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity decod_2_to_4 is port(
+	A: in std_logic_vector(1 downto 0);
+	O:	out std_logic_vector(3 downto 0);
+	EN: in std_logic;
+);
+end decod_2_to_4;
+
+architecture hardware of decod_2_to_4 is 
+begin
+process(EN, A)
+begin
+	O <= "ZZZZ";
+	
+		if (EN = '1' )
+			
+			case A is
+					when "00" => Y <= "0001";
+					when "01" => Y <= "0010";
+					when "10" => Y <= "0100";
+					when "11" => Y <= "1000";
+			end case;
+		end if;
+end process;
+end hardware;
